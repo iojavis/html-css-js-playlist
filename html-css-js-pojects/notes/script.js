@@ -14,5 +14,27 @@ function createNote(text = "") {
     <div class="main ${text ? "" : "hidden"}"></div>
     <textarea class="${text ? "hidden" : ""}"></textarea>
   `;
+  const edit_btn = note.querySelector(".edit");
+  const delete_btn = note.querySelector(".delete");
+  const main = note.querySelector(".main");
+  const text_area = note.querySelector("textarea");
+
+  text_area.value = text;
+  // main.innerHTML = marked(text); //problem here...
+
+  delete_btn.addEventListener("click", () => {
+    note.remove();
+  });
+
+  edit_btn.addEventListener("click", () => {
+    main.classList.toggle("hidden");
+    text_area.classList.toggle("hidden");
+  });
+
+  text_area.addEventListener("input", () => {
+    const { value } = e.target;
+    main.innerHTML = marked(value);
+  });
+
   document.body.appendChild(note);
 }
