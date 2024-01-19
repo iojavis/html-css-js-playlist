@@ -1,4 +1,5 @@
 {
   "terminal.integrated.fontSize": 16,
-  "editor.fontSize": 15
+  "editor.fontSize": 15,
+  "prettier.semi": false
 }
